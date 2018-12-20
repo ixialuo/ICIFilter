@@ -1,9 +1,28 @@
+# ICIFilter
+封装 Core Image 的 API
+
+# Content
+- [Why](#why)
+- [Methods&Advantage](#methods&advantage)
+    - [Methods](#methods)
+    - [Advantage](#advantage)
+- [Usage](#usage)
+    - [效果图](#效果图)
+    - [调用代码](#调用代码)
+- [Implementation](#implementation)
+    - [1、高斯模糊滤镜（CIGaussianBlur）](#1、高斯模糊滤镜（CIGaussianBlur）)
+    - [2、颜色生成滤镜（CIConstantColorGenerator）](#2、颜色生成滤镜（CIConstantColorGenerator）)
+    - [3、图像覆盖合成滤镜（CISourceOverCompositing）](#3、图像覆盖合成滤镜（CISourceOverCompositing）)
+    - [4、颜色叠层滤镜](#4、颜色叠层滤镜)
+- [Contact](#contact)
+- [License](#license)
+
 # Why
 - Core Image 是一个强大的图像处理框架，但是它的 API 有时可能略显笨拙。
 - Core Image 的 API 是弱类型的 —— 我们通过键值编码 (KVC) 来配置图像滤镜 (filter)。
 - 在使用参数的类型或名字时，我们都使用字符串来进行表示，这十分容易出错，极有可能导致运行时错误。
 
-# Methods& Advantage
+# Methods&Advantage
 #### Methods
 对CIImage延展开发新的API
 #### Advantage
