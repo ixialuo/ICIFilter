@@ -12,9 +12,17 @@ class ViewController: UIViewController {
     
     @IBOutlet var coreImageViews: [UIImageView]!
     
+    @IBOutlet var filterImageViews: [UIImageView]!
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        coreImageExtension()
+        
+        filterImageHigherOrderFunctions()
+    }
+
+    // 延展方式
+    func coreImageExtension() {
         if let url = URL(string: "https://via.placeholder.com/300x180/62abe4/ffffff?text=Core+Image"), let image = CIImage(contentsOf: url) {
             
             // 原图
@@ -38,7 +46,52 @@ class ViewController: UIViewController {
             coreImageViews[5].image = UIImage(ciImage: image.overlaid(color: yellow))
         }
     }
-
-
+    
+    // 高阶函数方式
+    func filterImageHigherOrderFunctions() {
+        if let url = URL(string: "https://via.placeholder.com/300x180/62abe4/ffffff?text=IFilter"), let image = CIImage(contentsOf: url) {
+            
+            // 原图
+            filterImageViews[0].image = UIImage(ciImage: image)
+            
+            // 高斯模糊滤镜
+            filterImageViews[1].image = UIImage(ciImage: blur(radius: 2)(image))
+            /**
+            // 对应的延展方式实现同样效果
+            filterImageViews[1].image = UIImage(ciImage: image.blurred(radius: 2))
+            */
+            
+            // 颜色生成滤镜
+            let color = UIColor.orange.withAlphaComponent(0.4)
+            filterImageViews[2].image = UIImage(ciImage: generate(color: color)(image))
+            /**
+            // 对应的延展方式实现同样效果
+            filterImageViews[2].image = UIImage(ciImage: image.generated(color: color))
+            */
+            
+            // 颜色叠层滤镜
+            filterImageViews[3].image = UIImage(ciImage: overlay(color: color)(image))
+            /**
+            // 对应的延展方式实现同样效果
+            filterImageViews[3].image = UIImage(ciImage: image.overlaid(color: color))
+            */
+            
+            // 复合函数组合滤镜
+            let blurAndOverlay1 = compose(filter: blur(radius: 2), with: overlay(color: color))
+            filterImageViews[4].image = UIImage(ciImage: blurAndOverlay1(image))
+            /**
+            // 对应的延展方式实现同样效果
+            filterImageViews[4].image = UIImage(ciImage: image.blurred(radius: 2).overlaid(color: color))
+            */
+            
+            // 自定义运算符组合滤镜
+            let blurAndOverlay2 = blur(radius: 2) >>> overlay(color: color)
+            filterImageViews[5].image = UIImage(ciImage: blurAndOverlay2(image))
+            /**
+            // 对应的延展方式实现同样效果
+            filterImageViews[5].image = UIImage(ciImage: image.blurred(radius: 2).overlaid(color: color))
+            */
+        }
+    }
 }
 
