@@ -30,7 +30,7 @@
 
 # Usage
 ##### 效果图
-![效果图](https://upload-images.jianshu.io/upload_images/2800067-b93c7fe0ae0728dc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/350)
+![效果图](https://upload-images.jianshu.io/upload_images/2800067-47f5219769f45235.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ##### 调用代码
 ```swift
