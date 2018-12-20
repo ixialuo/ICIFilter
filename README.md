@@ -1,5 +1,8 @@
 # ICIFilter
-封装 Core Image 的 API
+[封装 Core Image 的 API - 延展方式](https://www.jianshu.com/p/5537793022a5)<br>
+[封装 Core Image 的 API - 高阶函数方式](https://www.jianshu.com/p/c9ba2a719167)<br>
+
+下面介绍的是延展方式，高阶函数方式可点击👆链接查看
 
 # Content
 - [Why](#why)
