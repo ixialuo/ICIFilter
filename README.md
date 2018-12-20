@@ -24,7 +24,7 @@
 
 # Methods&Advantage
 #### Methods
-对CIImage延展开发新的API
+对 CIImage 延展开发新的 API
 #### Advantage
 避免这些运行时错误，最终得到一组类型安全的 API
 
@@ -40,21 +40,21 @@ if let url = URL(string: "https://via.placeholder.com/300x180/62abe4/ffffff?text
     coreImageViews[0].image = UIImage(ciImage: image)
     
     // 高斯模糊滤镜
-    coreImageViews[1].image = UIImage(ciImage: image.blur(radius: 2))
+    coreImageViews[1].image = UIImage(ciImage: image.blurred(radius: 2))
     
     // 颜色生成滤镜
     let color = UIColor.orange.withAlphaComponent(0.4)
-    coreImageViews[2].image = UIImage(ciImage: image.generate(color: color))
+    coreImageViews[2].image = UIImage(ciImage: image.generated(color: color))
     
     // 图像覆盖合成滤镜（自己实现）
-    coreImageViews[3].image = UIImage(ciImage: image.generate(color: color).compositeSource(over: image))
+    coreImageViews[3].image = UIImage(ciImage: image.generated(color: color).compositeSource(over: image))
     
     // 图像覆盖合成滤镜（系统自带）
-    coreImageViews[4].image = UIImage(ciImage: image.generate(color: color).composited(over: image))
+    coreImageViews[4].image = UIImage(ciImage: image.generated(color: color).composited(over: image))
     
     // 颜色叠层滤镜
     let yellow = UIColor.yellow.withAlphaComponent(0.4)
-    coreImageViews[5].image = UIImage(ciImage: image.overlay(color: yellow))
+    coreImageViews[5].image = UIImage(ciImage: image.overlaid(color: yellow))
 }
 ```
 
@@ -62,7 +62,7 @@ if let url = URL(string: "https://via.placeholder.com/300x180/62abe4/ffffff?text
 ##### 1、高斯模糊滤镜（CIGaussianBlur）
 ```swift
 // 1.高斯模糊滤镜（CIGaussianBlur）
-public func blur(radius: Double) -> CIImage {
+public func blurred(radius: Double) -> CIImage {
     let parameters: [String: Any] = [
         kCIInputRadiusKey: radius,
         kCIInputImageKey: self
@@ -79,7 +79,7 @@ public func blur(radius: Double) -> CIImage {
 
 ##### 2、颜色生成滤镜（CIConstantColorGenerator）
 ```swift
-public func generate(color: UIColor) -> CIImage {
+public func generated(color: UIColor) -> CIImage {
     let parameters: [String: Any] = [
         kCIInputColorKey: CIColor(cgColor: color.cgColor)
     ]
@@ -115,8 +115,8 @@ public func compositeSource(over dest: CIImage) -> CIImage {
 ##### 4、颜色叠层滤镜
 ```swift
 // 4.颜色叠层滤镜
-public func overlay(color: UIColor) -> CIImage {
-    let overlay = generate(color: color)
+public func overlaid(color: UIColor) -> CIImage {
+    let overlay = generated(color: color)
     return overlay.compositeSource(over: self)
 }
 ```
