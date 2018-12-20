@@ -11,7 +11,7 @@ import UIKit
 extension CIImage {
     
     // 1.高斯模糊滤镜（CIGaussianBlur）
-    public func blur(radius: Double) -> CIImage {
+    public func blurred(radius: Double) -> CIImage {
         let parameters: [String: Any] = [
             kCIInputRadiusKey: radius,
             kCIInputImageKey: self
@@ -26,7 +26,7 @@ extension CIImage {
     }
     
     // 2.颜色生成滤镜（CIConstantColorGenerator）
-    public func generate(color: UIColor) -> CIImage {
+    public func generated(color: UIColor) -> CIImage {
         let parameters: [String: Any] = [
             kCIInputColorKey: CIColor(cgColor: color.cgColor)
         ]
@@ -56,8 +56,8 @@ extension CIImage {
     }
     
     // 4.颜色叠层滤镜
-    public func overlay(color: UIColor) -> CIImage {
-        let overlay = generate(color: color)
+    public func overlaid(color: UIColor) -> CIImage {
+        let overlay = generated(color: color)
         return overlay.compositeSource(over: self)
     }
     
