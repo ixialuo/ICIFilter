@@ -12,6 +12,7 @@
 		CE7A878D21CB2C4F004407C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE7A878B21CB2C4F004407C0 /* Main.storyboard */; };
 		CE7A878F21CB2C50004407C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE7A878E21CB2C50004407C0 /* Assets.xcassets */; };
 		CE7A879221CB2C50004407C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE7A879021CB2C50004407C0 /* LaunchScreen.storyboard */; };
+		CE7A879F21CB2D33004407C0 /* CIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7A879E21CB2D33004407C0 /* CIImage+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		CE7A878E21CB2C50004407C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE7A879121CB2C50004407C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE7A879321CB2C50004407C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE7A879E21CB2D33004407C0 /* CIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CIImage+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +40,7 @@
 		CE7A877B21CB2C4F004407C0 = {
 			isa = PBXGroup;
 			children = (
+				CE7A879B21CB2C77004407C0 /* Sources */,
 				CE7A878621CB2C4F004407C0 /* ICIFilter */,
 				CE7A878521CB2C4F004407C0 /* Products */,
 			);
@@ -62,6 +65,14 @@
 				CE7A879321CB2C50004407C0 /* Info.plist */,
 			);
 			path = ICIFilter;
+			sourceTree = "<group>";
+		};
+		CE7A879B21CB2C77004407C0 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				CE7A879E21CB2D33004407C0 /* CIImage+Extension.swift */,
+			);
+			path = Sources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,6 +146,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE7A879F21CB2D33004407C0 /* CIImage+Extension.swift in Sources */,
 				CE7A878A21CB2C4F004407C0 /* ViewController.swift in Sources */,
 				CE7A878821CB2C4F004407C0 /* AppDelegate.swift in Sources */,
 			);
@@ -285,6 +297,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5U64V9MLNU;
 				INFOPLIST_FILE = ICIFilter/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -303,6 +316,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5U64V9MLNU;
 				INFOPLIST_FILE = ICIFilter/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
